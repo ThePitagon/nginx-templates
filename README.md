@@ -13,70 +13,63 @@ Clone this repository or copy the files from this repository into a new folder:
 ```
 git clone https://github.com/ThePitagon/nginx-templates.git
 ```
-Open a terminal, `cd` to the folder in which `docker-compose.yml` is saved, and run:
-```
-docker-compose up
-```
-
-## Components
-The docker image installs the following packages on your system:
-
-|Component|Version|
-| :-------------: | :-------------: |
-|Percona Server|[Stable version: 5.7](https://hub.docker.com/r/percona/percona-server)|
-|phpMyAdmin|[Latest from dockerhub](https://hub.docker.com/r/bitnami/phpmyadmin/)|
+Open a terminal, `cd` to the folder in which `nginx-templates` is saved.
 
 ## Data Structure
 Cloned project
 ```bash
-├── bin
-├── data
+├── conf.d
+├── html
+├── includes
+├── templates
+├── apply.sh
+├── env.sh
+├── install.sh
 ├── LICENSE
-├── README.md
-└── docker-compose.yml
+├── make.env.sh
+├── make.sh
+├── nginx.conf
+└── README.md
 ```
 
-* `bin` contains multiple CLI scripts to allow you add or delete database
-
-* `data` stores the MySQL database
+* `conf.d` contains default configurations for common uses.
+* `html` contains nginx public files.
+* `includes` contains configuration files for specific purposes.
+* `templates` contains template files for ease of use.
 
 ## Usage
-### Starting a Container
-Start the container with the `up` or `start` methods:
+### Fresh install
+Start fresh installation by run the following script:
+```bash
+./install.sh
 ```
-docker-compose up
+### Apply to existed nginx
+```bash
+./apply.sh
 ```
-You can run with daemon mode, like so:
+### Creating new website from template
+You can easily create a new website configuration by edit the `make.env.sh` file then execute the following command:
 ```
-docker-compose up -d
+bash ./make.sh TEMPLATE_TYPE OUTPUT_PATH
 ```
-The container is now built and running.
-### Stopping a Container
+* `TEMPLATE_TYPE` should be one of these values: [`app`, `static`, `wp`, `wp_php`]
+* `OUTPUT_PATH` is path of the output file.
+
+Then, check out the configuration file with the name `DOMAIN.conf` created in the `OUTPUT_PATH`. 
+
+Examples:
+```bash
+./make.sh app apps
+systemctl restart nginx
 ```
-docker-compose stop
-```
-### Removing Containers
-To stop and remove all containers, use the `down` command:
-```
-docker-compose down
-```
-### Creating a Database
-You can either automatically generate the user, password, and database names, or specify them. Use the following to auto generate:
-```
-bash bin/db.sh [-D, --domain] example.com
-```
-Use this command to specify your own names, substituting `user_name`, `my_password`, and `database_name` with your preferred values:
-```
-bash bin/db.sh [-D, --domain] example.com [-U, --user] USER_NAME [-P, --password] MY_PASS [-DB, --database] DATABASE_NAME
-```
-### Accessing the Database
-After installation, you can use phpMyAdmin to access the database by visiting `http://127.0.0.1:8080` or `https://127.0.0.1:8443`. The default username is `travistran`, and the password is the same as the one you supplied in the `.env` file.
 
 ## Support & Feedback
 If you still have a question after using MySQL Docker Environment, you have a few options.
 * Using support page on [Pitagon Website](https://pitagon.io).
 * Send email to [Pitagon Support Team](mailto:support@pitagon.vn) for help.
 * Connect [Travis Tran on Facebook](https://www.facebook.com/travistran1989) for real-time discussion.
-* Reporting any issue on [Github mysql-docker-env](https://github.com/ThePitagon/mysql-docker-env/issues) project.
+* Reporting any issue on [Github nginx-templates](https://github.com/ThePitagon/nginx-templates/issues) project.
 
 **Pull requests are always welcome**
+
+Tags: `wordpress`, `php`, `secure wordpress`, `nginx`, `secure nginx`

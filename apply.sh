@@ -11,5 +11,6 @@ sudo openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout "${NGINX_DIR}/
 yes | sudo cp -R html "${NGINX_HTML_DIR}"
 yes | sudo cp -R conf.d "${NGINX_DIR}/"
 yes | sudo cp -R includes "${NGINX_DIR}/"
+yes | sudo cp -R *.sh "${NGINX_DIR}/"
 sudo chown -R ${NGINX_USER}. "${NGINX_DIR}" "${NGINX_HTML_DIR}"
 sudo systemctl restart nginx
