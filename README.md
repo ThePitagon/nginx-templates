@@ -1,9 +1,42 @@
-# Nginx Templates
-[<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">](https://www.linkedin.com/company/pitagon/)
-[<img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white">](https://www.facebook.com/ThePitagon/)
-[<img src="https://img.shields.io/twitter/follow/ThePitagon.svg?label=Follow&style=social">](https://twitter.com/ThePitagon/)
-
+# Nginx Templates [<img src="https://img.shields.io/twitter/follow/ThePitagon.svg?label=Follow&style=social">](https://twitter.com/ThePitagon/)
 Secure and fastify your nginx setup process with useful features using these templates.
+
+General security features:
+* Turn off `access log`, `error log` and `log not found` in default.
+* Disable sensitive information.
+* Disable sending the nginx version number in error pages and Server header.
+* Disallow the browser to render the page inside a frame or iframe and avoid click-jacking in default.
+* Disable content-type sniffing on some browsers.
+* Enable the Cross-site scripting (XSS) filter built into most recent web browsers.
+* Enable `Content Security Policy` (CSP) to tell the browser that it can only download content from the domains you explicitly allow.
+* Enable Gzip.
+* Caching for static files.
+* Disable directory listing.
+* Ignore common 404s.
+* Disable direct access to Dotfiles.
+* Prevent access to any files starting with a $ (usually temp files).
+* Block executable file type.
+* Allow ACME Challenge requests.
+* Enable SSL common configurations.
+* Built-in templates that help to create new website using virtual host easily:
+    * `app` - App template: Redirect to an HTTP app using `proxy_pass`.
+    * `static` - Static template: Serve static app like `HTML` app, `SPA` using `root`.
+    * `wp` - WordPress template: Redirect to an HTTP website (that could be served by another web server, eg: Apache, OpenLiteSpeed, Docker Container, etc.).
+    * `wp_php` - PHP WordPress template: Serve WordPress website using PHP FastCGI with `fastcgi_pass`.
+
+WordPress' security features:
+* Enable rate limit.
+* Hide PHP version.
+* PHP FastCGI default configuration.
+* Common deny or internal locations, to help prevent access to areas of the site that should not be public.
+* Block WordPress installation pages to avoid brute force attacks and for obscurity.
+* Deny accesses to .php files in some directories (including sub-folders).
+* Block common exploit requests.
+* Block accesses to wp-config.php and any files similarly named.
+* Limit XML-RPC Access.
+* Limit Request Types.
+* Block user enumeration to protect usernames.
+* Reduce spam.
 
 ## Configuration
 Edit the `env.sh` file to update the default Nginx directory.
@@ -64,11 +97,11 @@ systemctl restart nginx
 ```
 
 ## Support & Feedback
-If you still have a question after using MySQL Docker Environment, you have a few options.
-* Using support page on [Pitagon Website](https://pitagon.io).
-* Send email to [Pitagon Support Team](mailto:support@pitagon.vn) for help.
-* Connect [Travis Tran on Facebook](https://www.facebook.com/travistran1989) for real-time discussion.
-* Reporting any issue on [Github nginx-templates](https://github.com/ThePitagon/nginx-templates/issues) project.
+If you still have a question after using Nginx Templates, you have a few options:
+* Reporting any issue on [Github nginx-templates](https://github.com/ThePitagon/nginx-templates/issues/) project.
+* Using support page on [Pitagon Website](https://pitagon.io/).
+* [Send email to Pitagon Support Team](mailto:support@pitagon.vn) for help.
+* Connect with author on [GitHub](https://github.com/travistran1989/).
 
 **Pull requests are always welcome**
 
