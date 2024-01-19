@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# @author: Travis Tran
+# @website: https://truong.id
+# @notice: run as root
 
 # Default nginx directory
 NGINX_DIR=/etc/nginx

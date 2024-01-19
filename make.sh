@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# @author: Travis Tran
+# @website: https://truong.id
+# @notice: run as root
 
 TYPE=$1
 OUT=$2

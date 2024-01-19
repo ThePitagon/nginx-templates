@@ -1,0 +1,12 @@
+{
+  "your_account_api_key_token": {
+    "site1_zone_id": [
+      "domain1.site1.com",
+      "domain2.site1.com"
+    ],
+    "site2_zone_id": [
+      "domain1.site2.com",
+      "domain2.site2.com"
+    ]
+  }
+}

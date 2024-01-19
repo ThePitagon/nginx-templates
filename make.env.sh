@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# @author: Travis Tran
+# @website: https://truong.id
+# @notice: run as root
 
 ROOT=/home/pitagon/p5n.dev
 DOMAIN=p5n.dev

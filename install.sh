@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# @author: Travis Tran
+# @website: https://truong.id
+# @notice: run as root
 
 # Install nginx
 sudo yum install -y epel-release openssl nginx
