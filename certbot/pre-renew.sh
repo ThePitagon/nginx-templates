@@ -69,7 +69,7 @@ for domain in "${!domain_details[@]}"; do
   zone_id=${api_key_zone[1]}
   echo "===Domain: $domain | API Key: $api_key | Zone ID: $zone_id"
 done
-echo "Done!"
+echo "Done"
 
 echo "Getting a list of certificates and their expiry dates..."
 certbot certificates > "$CERTBOT_OUTPUT"
@@ -102,7 +102,7 @@ fi
 for domain in "${expiring_domains[@]}"; do
   echo "$domain"
 done > "$CERTBOT_EXPIRING_DOMAIN_OUTPUT"
-echo "Done!"
+echo "Done"
 
 echo "Start changing IP address of expiring domains to new IP address..."
 for domain in "${expiring_domains[@]}"; do
@@ -130,7 +130,7 @@ for domain in "${expiring_domains[@]}"; do
     wait_for_dns_update "$domain" "$NEW_IP_ADDRESS"
   fi
 done
-echo "Done!"
+echo "Done"
 
 echo "Temporary disable current nginx domain configurations..."
 # shellcheck disable=SC2068
@@ -138,6 +138,6 @@ for INC_DIR in ${INC_DIRS[@]}; do
   sudo mv "/etc/nginx/${INC_DIR}" "/etc/nginx/${INC_DIR}_tmp"
 done
 sudo systemctl restart nginx
-echo "Done!".
+echo "Done"
 echo "It's good to start renewal process now."
 

@@ -71,7 +71,7 @@ done
 for domain in "${domain_details[@]}"; do
   wait_for_dns_update "$domain" "$NEW_IP_ADDRESS"
 done
-echo "Done!"
+echo "Done"
 
 echo "All services should work normally now."
 

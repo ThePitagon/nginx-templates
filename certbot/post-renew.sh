@@ -65,13 +65,13 @@ for domain in "${!domain_details[@]}"; do
   zone_id=${api_key_zone[1]}
   echo "===Domain: $domain | API Key: $api_key | Zone ID: $zone_id"
 done
-echo "Done!"
+echo "Done"
 
 echo "Getting the list of expiring domains..."
 expiring_domains=()
 readarray -t expiring_domains < "$CERTBOT_EXPIRING_DOMAIN_OUTPUT"
 echo "${expiring_domains[@]}"
-echo "Done!"
+echo "Done"
 
 echo "Start changing IP address of expiring domains to old IP address..."
 for domain in "${expiring_domains[@]}"; do
@@ -99,7 +99,7 @@ for domain in "${expiring_domains[@]}"; do
     wait_for_dns_update "$domain" "$NEW_IP_ADDRESS"
   fi
 done
-echo "Done!"
+echo "Done"
 
 truncate -s 0 "$CERTBOT_EXPIRING_DOMAIN_OUTPUT"
 
@@ -109,6 +109,6 @@ for INC_DIR in ${INC_DIRS[@]}; do
   sudo mv "/etc/nginx/${INC_DIR}_tmp" "/etc/nginx/${INC_DIR}"
 done
 sudo systemctl restart nginx
-echo "Done!".
+echo "Done"
 echo "All services should work normally now."
 
